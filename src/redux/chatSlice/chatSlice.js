@@ -4,6 +4,7 @@ const initialState = {
   token: null,
   isLogin: false,
   responses: [],
+  isAdmin: false,
   chats: {
     history: null,
     question: null,
@@ -16,8 +17,9 @@ export const chatSlice = createSlice({
   initialState,
   reducers: {
     isLoggedIn: (state, action) => {
-      state.token = action.payload;
+      state.token = action.payload.jwt;
       state.isLogin = true;
+      state.isAdmin = action.payload.is_admin;
     },
 
     setHistory: (state, action) => {
@@ -25,12 +27,6 @@ export const chatSlice = createSlice({
     },
     removeHistory: (state, action) => {
       state.chats.history = null;
-    },
-    setQuestion: (state, action) => {
-      state.chats.question = action.payload;
-    },
-    setAnswer: (state, acton) => {
-      state.chats.answer = acton.payload;
     },
     removeChat: (state, action) => {
       state.responses.length = 0;

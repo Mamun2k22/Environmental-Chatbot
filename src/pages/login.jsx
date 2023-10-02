@@ -6,7 +6,7 @@ import { isLoggedIn } from "@/redux/chatSlice/chatSlice";
 import { useLoginUserMutation } from "@/redux/chatSlice/chatApi";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -16,6 +16,8 @@ const LoginPage = () => {
     const dispatch = useDispatch()
 
     const [loginUser, { data: loginData, isSuccess, isLoading, error, isError }] = useLoginUserMutation()
+
+    console.log('login error', error)
 
     console.log({ loginData })
 
@@ -27,11 +29,11 @@ const LoginPage = () => {
     useEffect(() => {
         if (isSuccess && !isLoading) {
             navigate.push('/')
-            dispatch(isLoggedIn(loginData?.jwt))
+            dispatch(isLoggedIn(loginData))
             toast("successfully logged in")
         }
         if (isError && !isLoading) {
-            toast.error('something went wrong, please check your email and password again')
+            toast.error(error?.data?.detail || 'something went wrong')
         }
     }, [isLoading])
 
@@ -67,6 +69,7 @@ const LoginPage = () => {
                 </form>
 
             </div>
+            <ToastContainer />
         </div>
     );
 };
