@@ -1,12 +1,17 @@
 import Loader from '@/Components/Loader';
 import { useApproveUserQuery, useGetUserQuery } from '@/redux/chatSlice/chatApi';
+import axios from 'axios';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Dashboard = () => {
     const [searchTerm, setSearchTerm] = useState("");
+    const navigate = useRouter()
     const [searchResults, setSearchResults] = useState([]);
-    const { token } = useSelector(state => state.chat)
+    const { token, isAdmin } = useSelector(state => state.chat)
     const { data, isLoading, isSuccess } = useGetUserQuery(token)
 
     useEffect(() => {
@@ -21,14 +26,26 @@ const Dashboard = () => {
         setSearchResults(filteredResults);
     }, [isSuccess, data, searchTerm]);
 
+    if (!isAdmin) navigate.push('/')
+
 
 
     if (isLoading) {
         return <Loader />
     }
 
-    const handleApproved = (id) => {
+
+    const handleApproved = async (id) => {
         console.log(id)
+        const res = await axios.get(`https://real-mosquito-immensely.ngrok-free.app/api/approve/${id}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            },
+        })
+        if (res.data) {
+            toast.success(res?.data?.message)
+            console.log(res.data)
+        }
 
     }
 
@@ -72,7 +89,7 @@ const Dashboard = () => {
                             <tbody className="text-sm font-normal text-gray-700">
 
 
-                                {
+                                {isLoading ? <Loader /> :
                                     searchResults.length > 0 && searchResults?.map(result => {
                                         return <>
                                             <tr key={result.id} className="py-10 border-b border-gray-200 hover:bg-gray-100">
@@ -107,6 +124,7 @@ const Dashboard = () => {
 
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };

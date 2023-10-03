@@ -34,6 +34,11 @@ export const chatSlice = createSlice({
     setResponse: (state, action) => {
       state.responses.push(action.payload);
     },
+    logOut: (state, action) => {
+      state.isLogin = false;
+      state.isAdmin = false;
+      state.token = null;
+    },
   },
 });
 
@@ -43,6 +48,7 @@ export const {
   removeChat,
   removeHistory,
   setResponse,
+  logOut,
 } = chatSlice.actions;
 
 export default chatSlice.reducer;

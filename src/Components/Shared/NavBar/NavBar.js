@@ -8,11 +8,13 @@ import {
   Card,
 } from "@material-tailwind/react";
 import Link from "next/link";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logOut, removeChat } from "@/redux/chatSlice/chatSlice";
 
 export function StickyNavbar() {
+  const dispatch = useDispatch();
   const [openNav, setOpenNav] = React.useState(false);
-  const { isAdmin } = useSelector((state) => state.chat);
+  const { isAdmin, isLogin, token } = useSelector((state) => state.chat);
 
   React.useEffect(() => {
     window.addEventListener(
@@ -20,6 +22,11 @@ export function StickyNavbar() {
       () => window.innerWidth >= 960 && setOpenNav(false)
     );
   }, []);
+
+  const handleLogOUt = () => {
+    dispatch(logOut());
+    dispatch(removeChat());
+  };
 
   const navList = (
     <ul className="mb-4 mt-2 flex  gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-20 text-black">
@@ -64,9 +71,19 @@ export function StickyNavbar() {
           <div className="mr-4 hidden lg:flex justify-between">{navList}</div>
           <div className="flex items-center gap-4">
             <Typography as="li" variant="small" className="p-1 font-normal">
-              <Link href="/login" className="flex items-center">
-                Login
-              </Link>
+              {isLogin ? (
+                <Link
+                  onClick={handleLogOUt}
+                  href="/login"
+                  className="flex items-center"
+                >
+                  LogOUt
+                </Link>
+              ) : (
+                <Link href="/login" className="flex items-center">
+                  Login
+                </Link>
+              )}
             </Typography>
             <Typography
               as="li"

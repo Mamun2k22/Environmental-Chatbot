@@ -16,7 +16,7 @@ const chatApi = api.injectEndpoints({
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      }),
+      }),  
     }),
     approveUser: builder.query({
       query: (info) => ({
