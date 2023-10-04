@@ -42,11 +42,13 @@ export function StickyNavbar() {
           Features
         </Link>
       </Typography>
-      <Typography as="li" variant="small" className="p-1 font-normal">
-        <Link href="/chatbot" className="flex items-center">
-          Chatbot
-        </Link>
-      </Typography>
+      {isLogin && (
+        <Typography as="li" variant="small" className="p-1 font-normal">
+          <Link href="/chatbot" className="flex items-center">
+            Chatbot
+          </Link>
+        </Typography>
+      )}
       <Typography as="li" variant="small" className="p-1 font-normal">
         <a href="#" className="flex items-center">
           Pricing

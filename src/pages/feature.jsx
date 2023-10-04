@@ -50,10 +50,10 @@ const Feature = () => {
         <p className="mb-5">
           The sprawling archives of the UNEP furnish yet another facet of this
           data-driven paradigm. A treasure trove of information encompassing
-          diverse ecological domains, UNEP's datasets provide an unparalleled
+          diverse ecological domains, UNEP s datasets provide an unparalleled
           glimpse into the state of the environment. From biodiversity indices
           to air quality measurements, these data points paint a comprehensive
-          portrait of Earth's ecological health. Researchers adept at data
+          portrait of Earth s ecological health. Researchers adept at data
           mining can extrapolate trends, identify emerging challenges, and
           construct models that aid in forecasting future scenarios. The fusion
           of UNEP data with other interconnected sources creates a synergistic
