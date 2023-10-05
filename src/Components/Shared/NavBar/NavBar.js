@@ -1,22 +1,14 @@
-import React from "react";
-import {
-  Navbar,
-  MobileNav,
-  Typography,
-  Button,
-  IconButton,
-  Card,
-} from "@material-tailwind/react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut, removeChat } from "@/redux/chatSlice/chatSlice";
 
 export function StickyNavbar() {
   const dispatch = useDispatch();
-  const [openNav, setOpenNav] = React.useState(false);
+  const [openNav, setOpenNav] = useState(false);
   const { isAdmin, isLogin, token } = useSelector((state) => state.chat);
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener(
       "resize",
       () => window.innerWidth >= 960 && setOpenNav(false)
@@ -31,40 +23,40 @@ export function StickyNavbar() {
   const navList = (
     <ul className="mb-4 mt-2 flex  gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-20 text-black">
       {isAdmin && (
-        <Typography as="li" variant="small" className="p-1 font-normal">
+        <li className="p-1 font-normal">
           <Link href="/dashboard" className="flex items-center">
             Dashboard
           </Link>
-        </Typography>
+        </li>
       )}
-      <Typography as="li" variant="small" className="p-1 font-normal">
+      <li className="p-1 font-normal">
         <Link href="/feature" className="flex items-center">
           Features
         </Link>
-      </Typography>
+      </li>
       {isLogin && (
-        <Typography as="li" variant="small" className="p-1 font-normal">
+        <li className="p-1 font-normal">
           <Link href="/chatbot" className="flex items-center">
             Chatbot
           </Link>
-        </Typography>
+        </li>
       )}
-      <Typography as="li" variant="small" className="p-1 font-normal">
+      <li className="p-1 font-normal">
         <a href="#" className="flex items-center">
           Pricing
         </a>
-      </Typography>
-      <Typography as="li" variant="small" className="p-1 font-normal">
+      </li>
+      <li className="p-1 font-normal">
         <a href="#" className="flex items-center">
           About Us
         </a>
-      </Typography>
+      </li>
     </ul>
   );
 
   return (
     <div className="shadow-none">
-      <Navbar className="text-black bg-[#069C6F] max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4 shadow-none   border-none">
+      <div className="text-black bg-[#069C6F] max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4 shadow-none   border-none">
         <div className="flex items-center justify-between  ">
           <Link href="/" className="mr-4 cursor-pointer py-1.5 font-medium">
             Environmental Sustainability
@@ -72,7 +64,7 @@ export function StickyNavbar() {
 
           <div className="mr-4 hidden lg:flex justify-between">{navList}</div>
           <div className="flex items-center gap-4">
-            <Typography as="li" variant="small" className="p-1 font-normal">
+            <li className="p-1 font-normal">
               {isLogin ? (
                 <Link
                   onClick={handleLogOUt}
@@ -86,20 +78,14 @@ export function StickyNavbar() {
                   Login
                 </Link>
               )}
-            </Typography>
-            <Typography
-              as="li"
-              variant="small"
-              className="p-1 font-normal bg-black text-white px-3 rounded"
-            >
+            </li>
+            <li className="p-1 font-normal bg-black text-white px-3 rounded">
               <Link href="/signUp" className="flex items-center">
                 Sign up
               </Link>
-            </Typography>
-            <IconButton
-              variant="text"
+            </li>
+            <button
               className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-              ripple={false}
               onClick={() => setOpenNav(!openNav)}
             >
               {openNav ? (
@@ -132,16 +118,16 @@ export function StickyNavbar() {
                   />
                 </svg>
               )}
-            </IconButton>
+            </button>
           </div>
         </div>
-        <MobileNav open={openNav}>
+        {/* <div open={openNav}>
           {navList}
-          <Button variant="gradient" size="sm" fullWidth className="mb-2">
+          <button className="mb-2">
             <span>Buy Now</span>
-          </Button>
-        </MobileNav>
-      </Navbar>
+          </button>
+        </div> */}
+      </div>
     </div>
   );
 }

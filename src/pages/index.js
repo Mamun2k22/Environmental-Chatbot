@@ -1,8 +1,7 @@
 import { Inter } from "next/font/google";
 import { Banner } from "@/Components/Home/Banner/Banner";
-import LekhaCompo from "@/Components/Home/LekhaCompo/LekhaCompo";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
