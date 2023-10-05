@@ -52,7 +52,7 @@ const History = () => {
                 />
             </div>
             <div className="flex justify-between items-center">
-                <p className="text-xl font-bold py-4 pl-2">Contact</p>
+                <p className="text-xl font-bold py-4 pl-2">Contacts</p>
                 <button onClick={startNewChat} className="w-16  bg-green-400 text-white rounded-lg p-2 ">new</button>
             </div>
 
