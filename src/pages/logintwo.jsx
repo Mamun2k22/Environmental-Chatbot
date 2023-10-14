@@ -1,67 +1,10 @@
-import Loader from '@/Components/Loader';
-import { useApproveUserQuery, useGetUserQuery } from '@/redux/chatSlice/chatApi';
-import axios from 'axios';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React from 'react';
 
-const Dashboard = () => {
-    const [searchTerm, setSearchTerm] = useState("");
-    const navigate = useRouter()
-    const [searchResults, setSearchResults] = useState([]);
-    const { token, isAdmin } = useSelector(state => state.chat)
-    const { data, isLoading, isSuccess } = useGetUserQuery(token)
-
-    useEffect(() => {
-        if (isLoading) {
-            return;
-        }
-        const filteredResults = data?.results?.filter((response) =>
-            `${response?.id} ${response?.email} ${response?.name}`
-                .toLowerCase()
-                .includes(searchTerm.toLowerCase())
-        );
-        setSearchResults(filteredResults);
-    }, [isSuccess, data, searchTerm]);
-
-    // if (!isAdmin) navigate.push('/')
-
-
-
-    if (isLoading) {
-        return <Loader />
-    }
-
-
-    const handleApproved = async (id) => {
-        console.log(id)
-        const res = await axios.get(`https://real-mosquito-immensely.ngrok-free.app/api/approve/${id}`, {
-            headers: {
-                'Authorization': `Bearer ${token}`,
-            },
-        })
-        if (res.data) {
-            toast.success(res?.data?.message)
-            console.log(res.data)
-        }
-
-    }
-
-
-
-    const handleSearch = (event) => {
-        setSearchTerm(event.target.value);
-    };
-
-
-
-
+const logintwo = () => {
     return (
         <div>
-            <div className="items-center w-full px-4 py-4 mx-auto my-10 bg-white border border-indigo-600 rounded-lg shadow-md lg:w-11/12 sm:w-2/3">
-                <div className="container mx-auto"> 
+             <div className="items-center w-full px-4 py-4 mx-auto my-10 bg-white rounded-lg shadow-md sm:w-2/3">
+                <div className="container mx-auto">
                     <div className="flex justify-between items-center w-full px-4 py-2">
                         <div className="text-lg font-bold">
                             Admin Panel
@@ -70,8 +13,8 @@ const Dashboard = () => {
                             <input
                                 type="text"
                                 placeholder="searching.."
-                                className="py-2 px-4 border-2 border-gray-200 outline-none focus:border-indigo-500 rounded-full w-full lg:w-10/12 "
-                                onChange={handleSearch}
+                                className="py-2 px-2 border-2 border-gray-200 rounded-2xl w-full"
+                               
                             />
                         </div>
 
@@ -82,11 +25,7 @@ const Dashboard = () => {
                                 <tr className="text-base font-bold text-left bg-gray-50">
                                     <th className="px-4 py-3 border-b-2 border-blue-500">Name</th>
                                     <th className="px-4 py-3 border-b-2 border-green-500">Email</th>
-                                    <th className="px-4 py-3 border-b-2 border-green-500">Country</th>
-                                    <th className="px-4 py-3 border-b-2 border-green-500">City</th>
-                                    <th className="px-4 py-3 border-b-2 border-green-500">Address</th>
-                                    <th className="px-4 py-3 border-b-2 border-green-500">Zip Code</th>
-                                    <th className="px-4 py-3 border-b-2 border-red-500">Approved</th>
+                                    <th className="px-4 py-3 border-b-2 border-red-500">isApproved</th>
                                     <th className="px-4 py-3 text-center border-b-2 border-yellow-500 sm:text-left">Manage Access</th>
                                 </tr>
                             </thead>
@@ -128,9 +67,8 @@ const Dashboard = () => {
 
                 </div>
             </div>
-            <ToastContainer />
         </div>
     );
 };
 
-export default Dashboard;
+export default logintwo;

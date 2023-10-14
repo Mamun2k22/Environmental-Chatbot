@@ -1,4 +1,4 @@
-import { NavbarDefault, StickyNavbar } from "@/Components/Shared/NavBar/NavBar";
+import Navbar, { NavbarDefault, } from "@/Components/Shared/NavBar/NavBar";
 import "@/styles/globals.css";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }) {
     <>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-          <StickyNavbar />
+          <Navbar />
           <Component {...pageProps} />
         </PersistGate>
       </Provider>
