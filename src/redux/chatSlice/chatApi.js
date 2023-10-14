@@ -16,7 +16,7 @@ const chatApi = api.injectEndpoints({
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      }),  
+      }),
     }),
     approveUser: builder.query({
       query: (info) => ({
@@ -51,6 +51,39 @@ const chatApi = api.injectEndpoints({
         body: { question: data.question },
       }),
     }),
+    resetPasswordRequest: builder.mutation({
+      query: (data) => ({
+        url: `api/check_email_exists`,
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${data?.token}`,
+          "content-type": "application/json",
+        },
+        body: { email: data.email },
+      }),
+    }),
+    checkOtp: builder.mutation({
+      query: (data) => ({
+        url: `api/check_otp`,
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${data?.token}`,
+          "content-type": "application/json",
+        },
+        body: { email: data.email, otp: data.otp },
+      }),
+    }),
+    resetPassword: builder.mutation({
+      query: (data) => ({
+        url: `api/set_new_password`,
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${data?.token}`,
+          "content-type": "application/json",
+        },
+        body: { email: data.email, otp: data.otp, password: data.password },
+      }),
+    }),
   }),
 });
 
@@ -61,5 +94,8 @@ export const {
   useRegisterUserMutation,
   useGetUserQuery,
   useApproveUserQuery,
+  useResetPasswordRequestMutation,
+  useResetPasswordMutation,
+  useCheckOtpMutation,
 } = chatApi;
 export default chatApi;

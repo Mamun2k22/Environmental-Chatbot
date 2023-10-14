@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-function login() {
+function Login() {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const navigate = useRouter()
     const dispatch = useDispatch()
@@ -135,4 +135,4 @@ function login() {
   );
 }
 
-export default login;
+export default Login;

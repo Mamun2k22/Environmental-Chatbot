@@ -10,6 +10,8 @@ const initialState = {
     question: null,
     answer: null,
   },
+  otp: null,
+  email: null,
 };
 
 export const chatSlice = createSlice({
@@ -39,6 +41,18 @@ export const chatSlice = createSlice({
       state.isAdmin = false;
       state.token = null;
     },
+    setOtp: (state, action) => {
+      state.otp = action.payload;
+    },
+    removeOtp: (state, action) => {
+      state.otp = null;
+    },
+    setEmail: (state, action) => {
+      state.email = action.payload;
+    },
+    removeEmail: (state) => {
+      state.email = null;
+    },
   },
 });
 
@@ -49,6 +63,10 @@ export const {
   removeHistory,
   setResponse,
   logOut,
+  setOtp,
+  removeOtp,
+  setEmail,
+  removeEmail,
 } = chatSlice.actions;
 
 export default chatSlice.reducer;
