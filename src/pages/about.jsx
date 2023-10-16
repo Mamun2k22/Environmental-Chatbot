@@ -10,7 +10,7 @@ function AboutSection() {
                 <div class="grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-12 lg:items-center">
                     <div class="lg:col-span-3">
                     <h1 class="block text-3xl font-bold text-gray-800 sm:text-4xl lg:text-[54px] lg:leading-tight dark:text-white">Bridging Data and <span class="text-blue-600">Sustainability</span></h1>
-                    <p class="mt-3 text-lg text-gray-800 dark:text-gray-400">Welcome to [Company Name]! At the intersection of data-driven insights and climate sustainability, our organization stands tall and proud. As an independent body, we're not tied down by bureaucracy or corporate agendas. Instead, our passion is fueled by the desire to make a meaningful difference in the world of climate and sustainability policies.</p>
+                    <p class="mt-3 text-lg text-gray-800 dark:text-gray-400">Welcome to [Company Name]! At the intersection of data-driven insights and climate sustainability, our organization stands tall and proud. As an independent body, we are not tied down by bureaucracy or corporate agendas. Instead, our passion is fueled by the desire to make a meaningful difference in the world of climate and sustainability policies.</p>
 
                     <div class="mt-5 lg:mt-4 flex flex-col items-center gap-2 sm:flex-row sm:gap-3">
                     
@@ -18,7 +18,7 @@ function AboutSection() {
                         <h2 className='w-full sm:w-auto inline-flex justify-center items-center gap-x-3 text-center  border border-transparent   bg-blue-700 text-white px-3  font-bold rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white transition py-2  dark:focus:ring-offset-gray-800 lg:text-xl'>Our Mission: Navigating the Ocean of Knowledge</h2>
                         
                     </div>
-                    <p class="mt-2 text-lg text-gray-800 dark:text-gray-400">In today's fast-paced digital age, there's an ever-growing ocean of information. Amidst this vast expanse, it's easy to get lost or be overwhelmed. That's where we come in. Our primary goal is to dive deep into these large bodies of knowledge, leveraging the power of data to navigate and uncover hidden insights. Think of us as your friendly neighborhood data detectives, sifting through numbers and patterns to unearth the stories they tell about our planet and its changing climate.</p>
+                    <p class="mt-2 text-lg text-gray-800 dark:text-gray-400">In today{"'"}s fast-paced digital age, there is an ever-growing ocean of information. Amidst this vast expanse, it is easy to get lost or be overwhelmed. That is where we come in. Our primary goal is to dive deep into these large bodies of knowledge, leveraging the power of data to navigate and uncover hidden insights. Think of us as your friendly neighborhood data detectives, sifting through numbers and patterns to unearth the stories they tell about our planet and its changing climate.</p>
                     </div>
                                         <div class="lg:col-span-4 mt-10 lg:mt-0">
                                          <img
@@ -66,7 +66,7 @@ function AboutSection() {
                         </h1>
                     </div>
                     <p className="mb-6 text-base leading-7 text-gray-500 dark:text-gray-400">
-                    We firmly believe that data, when harnessed correctly, has the potential to bring about transformative change. By utilizing advanced analytical tools and methodologies, we aim to convert raw data into actionable insights. These insights, in turn, contribute to more informed, effective, and forward-thinking climate policies. In essence, we're giving voice to the silent numbers, allowing them to participate in the crucial conversations about our world's future.
+                    We firmly believe that data, when harnessed correctly, has the potential to bring about transformative change. By utilizing advanced analytical tools and methodologies, we aim to convert raw data into actionable insights. These insights, in turn, contribute to more informed, effective, and forward-thinking climate policies. In essence, we are giving voice to the silent numbers, allowing them to participate in the crucial conversations about our world is future.
                     </p>
                     <a href="#"
                         className="px-4 py-2 text-gray-100 bg-blue-500 rounded dark:bg-blue-400 dark:hover:bg-blue-500 hover:bg-blue-600">
@@ -107,7 +107,7 @@ function AboutSection() {
                 Transparency
                 </h2>
                 <p className="text-base leading-loose text-gray-500 dark:text-gray-400">
-                Our work is like an open book. We believe that for our insights to be truly impactful, they must be presented transparently. We're committed to sharing our methodologies, sources, and findings openly, ensuring that our stakeholders understand the "how" and "why" behind our conclusions.
+                Our work is like an open book. We believe that for our insights to be truly impactful, they must be presented transparently. We are committed to sharing our methodologies, sources, and findings openly, ensuring that our stakeholders understand the how and why behind our conclusions.
                 </p>
               </div>
             </div>
@@ -158,18 +158,18 @@ function AboutSection() {
 
         <div className="mt-8">
           <p className="text-gray-600">
-            While our journey is rooted in numbers and analytics, it's driven by a heartfelt desire to contribute to a better, more sustainable future. We understand the challenges our planet faces, and we're committed to playing our part in addressing them. By bridging the gap between data and sustainability, we hope to shed light on the path forward.
+            While our journey is rooted in numbers and analytics, it{"'"}s driven by a heartfelt desire to contribute to a better, more sustainable future. We understand the challenges our planet faces, and we are committed to playing our part in addressing them. By bridging the gap between data and sustainability, we hope to shed light on the path forward.
           </p>
         </div>
 
         <div className="mt-8">
           <p className="text-gray-600">
-            As we continue to grow and evolve, we invite you to join us. Whether you're a policy-maker, researcher, student, or just a curious soul, there's a place for you here at [Company Name]. Together, let's harness the power of data to create a brighter, greener tomorrow.
+            As we continue to grow and evolve, we invite you to join us. Whether you are a policy-maker, researcher, student, or just a curious soul, there is a place for you here at [Company Name]. Together, let s harness the power of data to create a brighter, greener tomorrow.
           </p>
         </div>
 
         <div className="mt-8 text-gray-600 text-center">
-          Thank you for taking the time to get to know us. We're thrilled to embark on this exciting journey with you. Let's make a difference, one data point at a time!
+          Thank you for taking the time to get to know us. We are thrilled to embark on this exciting journey with you. Let s make a difference, one data point at a time!
         </div>
       </div>
     </div>

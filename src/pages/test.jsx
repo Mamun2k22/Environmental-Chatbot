@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-const test = () => {
+const Test = () => {
     const dispatch = useDispatch();
     const { isAdmin, isLogin, token } = useSelector((state) => state.chat);
   const [open, setOpen] = useState(false);
@@ -167,4 +167,4 @@ const test = () => {
   );
 }
 
-export default test;
+export default Test;

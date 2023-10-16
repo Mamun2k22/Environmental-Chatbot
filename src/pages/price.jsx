@@ -1,6 +1,6 @@
 import React from 'react';
 
-const pricetwo = () => {
+const PriceTwo = () => {
     return (
         <div>
            <div class="container relative flex flex-col justify-between h-full max-w-6xl px-10 mx-auto xl:px-0 mt-5">
@@ -16,7 +16,7 @@ const pricetwo = () => {
                             <h3 class="my-2 ml-3 text-lg lg:text-xl font-bold text-blue-500">Standard Subscription</h3>
                         </div>
                         <p class="mt-3 mb-1 text-xs font-medium text-blue-400 uppercase">------------</p>
-                        <p class="mb-2 text-gray-600">Our base rate is just <span className='text-lg font-bold text-blue-600 border-2 border-indigo-600 rounded-full px-1 py-1'>$5</span> a month. We understand the diverse needs of our clientele, and we're open to exceptions, especially for NGOs and other non-profit organizations. If you fall under such a category, please reach out, and we'll work something out tailored to your needs.</p>
+                        <p class="mb-2 text-gray-600">Our base rate is just <span className='text-lg font-bold text-blue-600 border-2 border-indigo-600 rounded-full px-1 py-1'>$5</span> a month. We understand the diverse needs of our clientele, and we are open to exceptions, especially for NGOs and other non-profit organizations. If you fall under such a category, please reach out, and we will work something out tailored to your needs.</p>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@ const pricetwo = () => {
                             <h3 class="my-2 ml-3 text-lg font-bold text-indigo-500">Learn more our Services</h3>
                         </div>
                         <p class="mt-3 mb-1 text-xs font-medium text-indigo-500 uppercase">------------</p>
-                        <p class="mb-2 text-gray-600">We're dedicated to providing top-notch services while ensuring transparency in our pricing. If you have any questions or need further clarification on any aspect of our pricing, please don't hesitate to get in touch. We're here to help!</p>
+                        <p class="mb-2 text-gray-600">We re dedicated to providing top-notch services while ensuring transparency in our pricing. If you have any questions or need further clarification on any aspect of our pricing, please don t hesitate to get in touch. We{''}re here to help!</p>
                     </div>
                 </div>
             </div>
@@ -66,4 +66,4 @@ const pricetwo = () => {
     );
 };
 
-export default pricetwo;
+export default PriceTwo;

@@ -1,5 +1,6 @@
 import { useResetPasswordMutation } from '@/redux/chatSlice/chatApi';
 import { removeOtp } from '@/redux/chatSlice/chatSlice';
+import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,7 +9,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Reset = () => {
     const dispatch = useDispatch()
-    const { otp, token } = useSelector(state => state.chat)
+    const router = useRouter()
+    const { otp, token, email } = useSelector(state => state.chat)
     const { register, formState: { errors }, handleSubmit } = useForm()
 
     const [resetPassword, { isLoading, isSuccess, isError }] = useResetPasswordMutation()
@@ -19,7 +21,7 @@ const Reset = () => {
             toast.error("new password and confirm password must have to same")
         } else {
             const resetInfo = {
-                email: data.email,
+                email: email,
                 password: data.confirm_password,
                 otp: otp,
                 token: token
@@ -34,6 +36,8 @@ const Reset = () => {
         if (isSuccess && !isLoading) {
             toast.success("successfully reset your password")
             dispatch(removeOtp())
+            router.push('/login')
+
         }
         if (isError) {
             toast.error("something went wrong")
@@ -45,15 +49,8 @@ const Reset = () => {
                 <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 max-w-md w-full border border-indigo-600">
                     <h1 class="text-center text-2xl font-bold mb-6">Change Password</h1>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <div class="mb-4">
-                            <label class="block text-gray-700 font-bold mb-2" for="email">
-                                Email Address
-                            </label>
-                            <input
-                                {...register("email", { required: { value: true, message: "Email is required" } })}
-                                class="outline-none focus:border-indigo-500 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Enter your email address" />
-                        </div>
-                        {errors.email?.type === 'required' && <p className="text-red-500 text-xs italic">{errors.email.message}</p>}
+
+
                         <div class="mb-4">
                             <label class="block text-gray-700 font-bold mb-2" for="email">
                                 New Password

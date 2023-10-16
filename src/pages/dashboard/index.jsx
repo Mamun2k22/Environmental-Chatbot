@@ -61,7 +61,7 @@ const Dashboard = () => {
     return (
         <div>
             <div className="items-center w-full px-4 py-4 mx-auto my-10 bg-white border border-indigo-600 rounded-lg shadow-md lg:w-11/12 sm:w-2/3">
-                <div className="container mx-auto"> 
+                <div className="container mx-auto">
                     <div className="flex justify-between items-center w-full px-4 py-2">
                         <div className="text-lg font-bold">
                             Admin Panel
@@ -95,6 +95,7 @@ const Dashboard = () => {
 
                                 {isLoading ? <Loader /> :
                                     searchResults.length > 0 && searchResults?.map(result => {
+                                        console.log({ result })
                                         return <>
                                             <tr key={result.id} className="py-10 border-b border-gray-200 hover:bg-gray-100">
                                                 <td className="flex flex-row items-center px-4 py-4">
@@ -106,6 +107,19 @@ const Dashboard = () => {
                                                 </td>
                                                 <td className="px-4 py-4">
                                                     {result?.email}
+                                                </td>
+                                                <td className="px-4 py-4">
+                                                    {result?.country}
+                                                </td>
+                                                <td className="px-4 py-4">
+                                                    {result?.city}
+                                                </td>
+                                                <td className="px-4 py-4">
+                                                    {result?.address1
+}
+                                                </td>
+                                                <td className="px-4 py-4">
+                                                    {result?.zipcode}
                                                 </td>
                                                 <td className="px-4 py-4">
                                                     {result?.is_approved ? "true" : "false"}

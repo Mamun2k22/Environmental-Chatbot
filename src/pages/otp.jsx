@@ -24,14 +24,13 @@ function OTPVerificationForm() {
         }
         setConfirmOtp(otpString)
         await checkOtp(otpInfo)
-
-        router.push('/reset')
     };
 
     useEffect(() => {
         if (isSuccess) {
             toast.success('otp verified')
             dispatch(setOtp(confirmOtp))
+            router.push('/reset')
         }
         if (isError) {
             toast.error("something went wrong")
