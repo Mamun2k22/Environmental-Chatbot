@@ -42,7 +42,7 @@ const Reset = () => {
         if (isError) {
             toast.error("something went wrong")
         }
-    }, [isLoading, isSuccess, isError])
+    }, [isLoading, isSuccess, isError, dispatch, router])
     return (
         <div>
             <div class="min-h-screen bg-gray-100 flex items-center justify-center">

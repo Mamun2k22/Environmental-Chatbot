@@ -31,7 +31,7 @@ const ResetPassword = () => {
     if (isError) {
       toast.error("something went wrong")
     }
-  }, [isLoading, isSuccess])
+  }, [isError, isLoading, isSuccess, router])
 
   return (
     <div>

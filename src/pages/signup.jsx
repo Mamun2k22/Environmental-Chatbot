@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react/jsx-no-comment-textnodes */
 import Loader from "@/Components/Loader";
 import { useRegisterUserMutation } from "@/redux/chatSlice/chatApi";
 import Link from "next/link";
@@ -28,6 +30,7 @@ const SignUp = () => {
   });
   return (
     <div className="relative">
+      // eslint-disable-next-line @next/next/no-img-element
       <img
         src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
         className="absolute inset-0 object-cover w-full h-full"

@@ -24,7 +24,7 @@ const Dashboard = () => {
                 .includes(searchTerm.toLowerCase())
         );
         setSearchResults(filteredResults);
-    }, [isSuccess, data, searchTerm]);
+    }, [isSuccess, data, searchTerm, isLoading]);
 
     // if (!isAdmin) navigate.push('/')
 

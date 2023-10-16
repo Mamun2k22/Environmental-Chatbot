@@ -35,7 +35,7 @@ const DynamicChat = () => {
         if (isSuccess && !isLoading) {
             dispatch(setResponse(resData))
         }
-    }, [isLoading, isSuccess])
+    }, [dispatch, isLoading, isSuccess, resData])
 
     return (
         <div className="w-full px-5 flex flex-col justify-between">

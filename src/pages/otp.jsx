@@ -35,7 +35,7 @@ function OTPVerificationForm() {
         if (isError) {
             toast.error("something went wrong")
         }
-    }, [isLoading, isSuccess])
+    }, [confirmOtp, dispatch, isError, isLoading, isSuccess, router])
 
     return (
         <div className="max-w-md mx-auto border border-indigo-600  mt-20 rounded">
