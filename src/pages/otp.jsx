@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 
 function OTPVerificationForm() {
     const { email } = useSelector(state => state.chat)
@@ -33,7 +33,7 @@ function OTPVerificationForm() {
             router.push('/reset')
         }
         if (isError) {
-            toast.error("something went wrong")
+            toast.error("Your OTP is Invalid")
         }
     }, [confirmOtp, dispatch, isError, isLoading, isSuccess, router])
 
@@ -111,6 +111,7 @@ function OTPVerificationForm() {
                         Resend OTP
                     </a>
                 </div>
+                <ToastContainer></ToastContainer>
             </form>
         </div>
     );

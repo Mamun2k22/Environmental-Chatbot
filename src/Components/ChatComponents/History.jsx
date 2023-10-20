@@ -47,13 +47,13 @@ const History = () => {
                 <input
                     type="text"
                     placeholder="searching.."
-                    className="py-2 px-2 border-2 border-gray-200 rounded-2xl w-full"
+                    className="py-2 lg:py-1 outline-none border-blue-600 px-2 border-2 rounded-2xl w-full"
                     onChange={handleSearch}
                 />
             </div>
             <div className="flex justify-between items-center">
-                <p className="text-xl font-bold py-4 pl-2">Contacts</p>
-                <button onClick={startNewChat} className="w-16  bg-green-400 text-white rounded-lg p-2 ">new</button>
+                <p className="text-xl font-bold py-4 pl-2">Chats</p>
+                <button onClick={startNewChat} className="w-16   bg-blue-500 text-white rounded-xl p-2 mr-2 ">new</button>
             </div>
 
             <div className="sm:h-80 sticky overflow-auto">

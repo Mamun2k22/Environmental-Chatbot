@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from 'next/image';
 import React from 'react';
+import a from '../../src/images/a.png'
+import b from '../../src/images/b.jpg'
 
 function AboutSection() {
 
@@ -12,7 +14,7 @@ function AboutSection() {
         <div class="grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-12 lg:items-center">
           <div class="lg:col-span-3">
             <h1 class="block text-3xl font-bold text-gray-800 sm:text-4xl lg:text-[54px] lg:leading-tight dark:text-white">Bridging Data and <span class="text-blue-600">Sustainability</span></h1>
-            <p class="mt-3 text-lg text-gray-800 dark:text-gray-400">Welcome to [Company Name]! At the intersection of data-driven insights and climate sustainability, our organization stands tall and proud. As an independent body, we are not tied down by bureaucracy or corporate agendas. Instead, our passion is fueled by the desire to make a meaningful difference in the world of climate and sustainability policies.</p>
+            <p class="mt-3 text-lg text-gray-800 dark:text-gray-400">Welcome to <span className='text-lg text-blue-600'>Environmental Sustainability!</span> At the intersection of data-driven insights and climate sustainability, our organization stands tall and proud. As an independent body, we are not tied down by bureaucracy or corporate agendas. Instead, our passion is fueled by the desire to make a meaningful difference in the world of climate and sustainability policies.</p>
 
             <div class="mt-5 lg:mt-4 flex flex-col items-center gap-2 sm:flex-row sm:gap-3">
 
@@ -24,8 +26,10 @@ function AboutSection() {
           </div>
           <div class="lg:col-span-4 mt-10 lg:mt-0">
             <Image
-              className="w-fullrounded-xl p-2 "
-              src="https://images.unsplash.com/photo-1665686376173-ada7a0031a85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=900&h=700&q=80"
+              className="w-full rounded p-2 border border-indigo-600 "
+              src={a}
+              height={1200}
+             
               alt="Image Description"
             />
           </div>
@@ -42,7 +46,7 @@ function AboutSection() {
             <div className="w-full px-4 mb-10 lg:w-1/2 lg:mb-0">
               <div className="relative lg:max-w-md">
                 <Image
-                  src="https://i.postimg.cc/rF0MKfBV/pexels-andrea-piacquadio-3760263.jpg"
+                  src={b}
                   alt="aboutimage"
                   className="relative z-10 object-cover w-full rounded h-96"
                 />
@@ -166,7 +170,7 @@ function AboutSection() {
 
           <div className="mt-8">
             <p className="text-gray-600">
-              As we continue to grow and evolve, we invite you to join us. Whether you are a policy-maker, researcher, student, or just a curious soul, there is a place for you here at [Company Name]. Together, let s harness the power of data to create a brighter, greener tomorrow.
+              As we continue to grow and evolve, we invite you to join us. Whether you are a policy-maker, researcher, student, or just a curious soul, there is a place for you here at Environmental Sustainability. Together, let s harness the power of data to create a brighter, greener tomorrow.
             </p>
           </div>
 

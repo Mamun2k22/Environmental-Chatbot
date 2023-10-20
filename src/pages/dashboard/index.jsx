@@ -1,5 +1,5 @@
 import Loader from '@/Components/Loader';
-import { useApproveUserQuery, useGetUserQuery } from '@/redux/chatSlice/chatApi';
+import { useApproveUserMutation, useApproveUserQuery, useGetUserQuery } from '@/redux/chatSlice/chatApi';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -13,12 +13,12 @@ const Dashboard = () => {
     const [searchResults, setSearchResults] = useState([]);
     const { token, isAdmin } = useSelector(state => state.chat)
     const { data, isLoading, isSuccess } = useGetUserQuery(token)
-
+    const [approveUser, { isLoading: ALoading, isSuccess: ASuccess }] = useApproveUserMutation()
     useEffect(() => {
         if (isLoading) {
             return;
         }
-        const filteredResults = data?.results?.filter((response) =>
+        const filteredResults = data?.filter((response) =>
             `${response?.id} ${response?.email} ${response?.name}`
                 .toLowerCase()
                 .includes(searchTerm.toLowerCase())
@@ -27,7 +27,11 @@ const Dashboard = () => {
     }, [isSuccess, data, searchTerm, isLoading]);
 
     // if (!isAdmin) navigate.push('/')
-
+    useEffect(() => {
+        if (ASuccess) {
+            toast.success("successfully approved a user")
+        }
+    }, [ALoading, ASuccess])
 
 
     if (isLoading) {
@@ -36,20 +40,12 @@ const Dashboard = () => {
 
 
     const handleApproved = async (id) => {
-        console.log(id)
-        const res = await axios.get(`https://real-mosquito-immensely.ngrok-free.app/api/approve/${id}`, {
-            headers: {
-                'Authorization': `Bearer ${token}`,
-            },
-        })
-        if (res.data) {
-            toast.success(res?.data?.message)
-            console.log(res.data)
+        const info = {
+            token: token,
+            id: id
         }
-
+        await approveUser(info)
     }
-
-
 
     const handleSearch = (event) => {
         setSearchTerm(event.target.value);
@@ -126,9 +122,10 @@ const Dashboard = () => {
                                                 </td>
                                                 {
                                                     result?.is_approved ? <td className="px-4 py-4">
-                                                        <p className='bg-green-400 text-white p-4 rounded-lg text-center'>approved</p>
-                                                    </td> : <td className="px-4 py-4">
-                                                        <p onClick={() => handleApproved(result?.id)} className='bg-black hover:cursor-pointer text-white p-4 rounded-lg text-center'>accept</p>
+                                                      <p className='bg-gradient-to-r from-blue-500 via-blue-600 to-indigo-600 text-white p-2 rounded-lg text-center'>approved</p>
+
+                                                    </td> : <td className="px-4 py-3">
+                                                        <p onClick={() => handleApproved(result?.id)} className='bg-red-500 hover:cursor-pointer text-white p-2 rounded-lg text-center'>accept</p>
                                                     </td>
                                                 }
 

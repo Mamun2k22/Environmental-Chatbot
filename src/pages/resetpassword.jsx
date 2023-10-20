@@ -29,7 +29,7 @@ const ResetPassword = () => {
       router.push('/otp')
     }
     if (isError) {
-      toast.error("something went wrong")
+      toast.error("User is not Registerd!")
     }
   }, [isError, isLoading, isSuccess, router])
 

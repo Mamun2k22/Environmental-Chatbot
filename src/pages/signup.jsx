@@ -20,6 +20,7 @@ const SignUp = () => {
   if (isLoading) <Loader />;
 
   const onsubmit = (data) => {
+    console.log(data)
     registerUser(data);
   };
 
@@ -46,7 +47,7 @@ const SignUp = () => {
             d="M-164 13L-104 39.7C-44 66 76 120 196 141C316 162 436 152 556 119.7C676 88 796 34 916 13C1036 -8 1156 2 1216 7.7L1276 13V162.5H1216C1156 162.5 1036 162.5 916 162.5C796 162.5 676 162.5 556 162.5C436 162.5 316 162.5 196 162.5C76 162.5 -44 162.5 -104 162.5H-164V13Z"
           />
         </svg>
-        <div className="relative px-4 py-16 mx-auto overflow-hidden sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+        <div className="relative px-4 py-26 mx-auto overflow-hidden sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
           <div className="flex flex-col items-center justify-between xl:flex-row">
             <div className="w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12">
 
@@ -81,7 +82,7 @@ const SignUp = () => {
               <div className="bg-white shadow  text-gray-500 rounded-3xl w-full overflow-hidden" style={{ maxWidth: '480px' }}>
                 <div className="md:flex w-full">
 
-                  <div className="w-full  py-10 px-5 md:px-10">
+                  <div className="w-full  py-20 px-5 md:px-10">
                     <div className="text-center mb-10">
                       <h1 className="font-bold text-3xl text-gray-900">REGISTER</h1>
                       <p>Enter your information to register</p>
@@ -99,14 +100,14 @@ const SignUp = () => {
                             </div>
                             <input
                               {...register("name", {
-                                required: { value: true, message: "name is required" },
+                                required: { value: true, message: "Name is required" },
                               })}
                               type="text"
                               className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                               placeholder="Enter your Name"
                             />
                             {errors.name?.type === "required" && (
-                              <p className="text-red-500 text-xs italic">
+                              <p className="text-red-500 text-base italic">
                                 {errors.name.message}
                               </p>
                             )}
@@ -124,14 +125,14 @@ const SignUp = () => {
                             </div>
                             <input
                               {...register("email", {
-                                required: { value: true, message: "email is required" },
+                                required: { value: true, message: "Email is required" },
                               })}
                               type="email"
                               className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                               placeholder="johnsmith@example.com"
                             />
                             {errors.email?.type === "required" && (
-                              <p className="text-red-500 text-xs italic">
+                              <p className="text-red-500 text-base italic">
                                 {errors.email.message}
                               </p>
                             )}
@@ -149,14 +150,14 @@ const SignUp = () => {
                             </div>
                             <input
                               {...register("password", {
-                                required: { value: true, message: "password is required" },
+                                required: { value: true, message: "Password is required" },
                               })}
                               type="password"
                               className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                               placeholder="************"
                             />
                             {errors.password?.type === "required" && (
-                              <p className="text-red-500 text-xs italic">
+                              <p className="text-red-500 text-base italic">
                                 {errors.password.message}
                               </p>
                             )}
@@ -173,9 +174,7 @@ const SignUp = () => {
                               <i className="mdi mdi-account-outline text-gray-400 text-lg"></i>
                             </div>
                             <input
-                              {...register("country", {
-                                required: { value: true, message: "country is required" },
-                              })}
+                              {...register("country")}
                               type="text"
                               className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                               placeholder="Country"
@@ -196,18 +195,12 @@ const SignUp = () => {
                               <i className="mdi mdi-account-outline text-gray-400 text-lg"></i>
                             </div>
                             <input
-                              {...register("city", {
-                                required: { value: true, message: "city  is required" },
-                              })}
+                              {...register("city")}
                               type="text"
                               className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                               placeholder="City"
                             />
-                            {errors.city?.type === "required" && (
-                              <p className="text-red-500 text-xs italic">
-                                {errors.city.message}
-                              </p>
-                            )}
+                        
                           </div>
                         </div>
                       </div>
@@ -222,18 +215,12 @@ const SignUp = () => {
                               <i className="mdi mdi-account-outline text-gray-400 text-lg"></i>
                             </div>
                             <input
-                              {...register("state", {
-                                required: { value: true, message: "state is required" },
-                              })}
+                              {...register("state")}
                               type="text"
                               className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                               placeholder="State"
                             />
-                            {errors.state?.type === "required" && (
-                              <p className=" text-red-500 text-xs italic">
-                                {errors.state.message}
-                              </p>
-                            )}
+                      
                           </div>
                         </div>
                         <div className="w-1/2 px-3 mb-5">
@@ -245,26 +232,17 @@ const SignUp = () => {
                               <i className="mdi mdi-account-outline text-gray-400 text-lg"></i>
                             </div>
                             <input
-                              {...register("zipcode", {
-                                required: {
-                                  value: true,
-                                  message: "zipcode is required",
-                                },
-                              })}
+                              {...register("zipcode")}
                               type="text"
                               className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                               placeholder="Zip"
                             />
-                            {errors.zipcode?.type === "required" && (
-                              <p className="text-red-500 text-xs italic">
-                                {errors.zipcode.message}
-                              </p>
-                            )}
+                         
                           </div>
                         </div>
                       </div>
 
-                      <div className="">
+                      {/* <div className="">
                         <div className="w-full mx-10 mb-5">
                           <label htmlFor="" className="text-xs font-semibold px-1">
                             Address 1
@@ -274,45 +252,38 @@ const SignUp = () => {
                               <i className="mdi mdi-email-outline text-gray-400 text-lg"></i>
                             </div>
                             <input
-                              {...register("address1", {
-                                required: { value: true, message: "address 1 is required" },
-                              })}
+                              {...register("address1")}
                               type="text"
                               className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                               placeholder="Address 1"
                             />
-                            {errors.address1?.type === "required" && (
-                              <p className="text-red-500 text-xs italic">
-                                {errors.address1.message}
-                              </p>
-                            )}
+                        
                           </div>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="">
-                        <div className="w-full mx-10 mb-5">
-                          <label htmlFor="" className="text-xs font-semibold px-1">
-                            Address 2
-                          </label>
-                          <div className="">
-                            <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                              <i className="mdi mdi-email-outline text-gray-400 text-lg"></i>
+                        <div class="flex -mx-3">
+                        <div class="w-full px-3 mb-5">
+                            <label for="" class="text-xs font-semibold px-1">Address 1</label>
+                            <div class="flex">
+                                <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
+                                <input
+                                {...register("address1")}
+                                 type="text" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="Address 2"/>
                             </div>
-                            <input
-                              {...register("address2", {
-                                required: { value: true, message: "address 2 is required" },
-                              })}
-                              type="text"
-                              className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                              placeholder="Address 2"
-                            />
-                            {errors.address1?.type === "required" && (
-                              <p className="text-red-500 text-xs italic">
-                                {errors.address1.message}
-                              </p>
-                            )}
-                          </div>
                         </div>
+                    </div>
+                        <div class="flex -mx-3">
+                        <div class="w-full px-3 mb-5">
+                            <label for="" class="text-xs font-semibold px-1">Address 2</label>
+                            <div class="flex">
+                                <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
+                                <input
+                                {...register("address2")}
+                                 type="text" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="Address 2"/>
+                            </div>
+                        </div>
+                    </div>
                       </div>
                       <div className="flex -mx-3">
                         <div className="w-full px-3 mb-5">

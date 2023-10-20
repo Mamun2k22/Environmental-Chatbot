@@ -18,10 +18,10 @@ export function Banner() {
       >
         <div className="flex items-center justify-center w-full h-full bg-gray-900/40">
           <div className="text-center">
-          <h1 class="block text-xl font-bold text-gray-100 sm:text-xl lg:text-[20px] lg:leading-tight dark:text-white">An AI tool made for conversion  <span class="text-gray-200">rate optimization</span></h1>
+          <h1 class="block text-xl font-bold text-gray-100 sm:text-xl lg:text-[20px] lg:leading-tight dark:text-white">An AI tool made for</h1>
             <h1 className=" lg:mt-4 text-3xl font-semibold text-white lg:text-6xl">
             Use LLMs to access <br /> <span className="text-blue-400 leading-tight">Global Sustainability
-</span> Data Project
+</span> Data
             </h1>
           <Link href='/signup'>
           <button

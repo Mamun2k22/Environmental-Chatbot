@@ -17,15 +17,22 @@ const chatApi = api.injectEndpoints({
           Authorization: `Bearer ${token}`,
         },
       }),
+      providesTags:["chat"]
     }),
-    approveUser: builder.query({
+    approveUser: builder.mutation({
       query: (info) => ({
-        url: `/api/approve/${info?.id}`,
+        url: `/api/approve`,
+        method: "POST",
         headers: {
           Authorization: `Bearer ${info?.token}`,
         },
+        body:{
+          id: info.id
+        }
       }),
+      invalidatesTags: ["chat"],
     }),
+
     loginUser: builder.mutation({
       query: (data) => ({
         url: `/api/login`,
@@ -93,9 +100,9 @@ export const {
   useSendRequestMutation,
   useRegisterUserMutation,
   useGetUserQuery,
-  useApproveUserQuery,
   useResetPasswordRequestMutation,
   useResetPasswordMutation,
   useCheckOtpMutation,
+  useApproveUserMutation
 } = chatApi;
 export default chatApi;

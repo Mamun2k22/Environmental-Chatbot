@@ -20,6 +20,7 @@ const DynamicChat = () => {
     if (isSuccess && !isLoading) {
         console.log("send response data", resData)
     }
+   
 
     const onsubmit = (data) => {
 
@@ -35,6 +36,7 @@ const DynamicChat = () => {
         if (isSuccess && !isLoading) {
             dispatch(setResponse(resData))
         }
+       
     }, [dispatch, isLoading, isSuccess, resData])
 
     return (
@@ -93,14 +95,25 @@ const DynamicChat = () => {
                 }
             </div>
             <div className="py-5">
-                <form onSubmit={handleSubmit(onsubmit)}>
-                    <input
-                        className="w-full bg-gray-300 py-5 px-3 rounded-xl"
-                        {...register("question", { required: { value: true, message: "question is required" } })}
-                        type="text"
-                        placeholder="type your message here..."
-                    />
-                </form>
+            <form onSubmit={handleSubmit(onsubmit)} className="relative">
+  <div className="input-container relative">
+    <input
+      className="w-full bg-gray-300 py-3 outline-none border border-indigo-600 px-3 rounded-xl"
+      {...register("question", { required: { value: true, message: "question is required" } })}
+      type="text"
+      placeholder="type your message here..."
+    />
+    <span className="cent-symbol absolute right-4 top-1/2 transform -translate-y-1/2"> <button
+  type="submit"
+  className="bg-gradient-to-r from-blue-600 to-indigo-600 px-3 py-1 rounded-lg text-white"
+>
+  send
+</button>
+</span>
+  </div>
+ 
+</form>
+
 
             </div>
         </div>

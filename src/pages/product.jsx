@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from 'next/image';
 import React from 'react';
-
+import ourproduct from '../../src/images/ourproduct.jpeg'
 const product = () => {
   return (
     <div>
-      <div class="lg:mx-16 lg:col-start-2 lg:w-11/12 rounded-2xl bg-blue-500 bg-opacity-0 px-8 py-4 text-blue-500 dark:bg-opacity-20 md:h-[400px] lg:h-[500px]  relative">
+      <div class="lg:mx-16 lg:col-start-2 lg:w-11/12 rounded-2xl bg-blue-500 bg-opacity-0 px-8 py-4 text-blue-500 dark:bg-opacity-20 md:h-[400px] lg:h-[500px]  relative lg:mt-6">
         <div class="relative h-full ml-0 mr-0 sm:mr-10">
           <span class="absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-blue-400 rounded-lg"></span>
           <div class="relative h-full p-5 bg-white border-2 border-blue-400 rounded-lg">
@@ -89,7 +89,7 @@ const product = () => {
       </div>
 
       <section class="overflow-hidden bg-white py-8 sm:py-16">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl px-6 lg:px-4">
           <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
             <div class="lg:pr-8 lg:pt-0">
               <div class="lg:W-10/12">
@@ -143,7 +143,7 @@ const product = () => {
                 </dl>
               </div>
 
-            </div><Image src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw4fHxjb21wdXRlcnxlbnwwfDB8fHwxNjkxODE2NjY3fDA&ixlib=rb-4.0.3&q=80&w=1080" alt="Product screenshot" class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0 p-1 border border-indigo-500" width="2432" height="1442" />
+            </div><Image src={ourproduct} alt="Product screenshot" class="w-[21rem] lg:w-[41rem] lg:h-[36rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0 p-1 border border-indigo-500 " width="2432" height="1442" />
           </div>
         </div>
       </section>

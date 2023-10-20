@@ -3,6 +3,9 @@ import { logOut, removeChat } from '@/redux/chatSlice/chatSlice';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import logo from '../../../images/logo.jpg'
+import logo2 from '../../../images/logo2.png'
+import Image from 'next/image';
 
 const Navbar = () => {
     const dispatch = useDispatch();
@@ -19,11 +22,18 @@ const Navbar = () => {
 
     return (
         <section className="shadow-md font-poppins dark:bg-gray-800">
-            <div className="max-w-6xl px-4 mx-auto">
+            <div className="max-w-7xl px-4 lg:mx-4 mx-4">
                 <div className="relative flex items-center justify-between py-3">
-                    <a href="" className="text-3xl font-semibold leading-none dark:text-gray-400">
-                        <img className='w-auto h-12' src="https://i.ibb.co/6ysDYhD/logo.png" alt="" srcset="" />
-                    </a>
+                    <div className='flex justify-center items-center text-blue-600 font-semibold'>
+                    <Link href="/" className="text-3xl  leading-none dark:text-gray-400">
+                        <Image className='w-auto h-16' src={logo} alt="" srcset="" />
+                    </Link>
+                    <Link href="/">
+  <h1 class="text-sm font-bold bg-gradient-to-r from-indigo-600 to-blue-500 bg-clip-text text-transparent hidden md:inline">Environmental Sustainability</h1>
+</Link>
+
+
+                    </div>
                     <div className="lg:hidden">
                         <button
                             className="flex items-center px-3 py-2 text-blue-600 border border-blue-200 rounded dark:text-gray-400 navbar-burger hover:text-blue-800 hover:border-blue-300 lg:hidden"
@@ -38,7 +48,7 @@ const Navbar = () => {
 
                         {isAdmin && (
                             <li className="menu-item p-1 font-normal">
-                                <Link href="/dashboard" className="flex items-center">
+                                <Link href="/dashboard" className="flex items-center text-sm lg:mt-1">
                                     Dashboard
                                 </Link>
                             </li>
@@ -47,55 +57,58 @@ const Navbar = () => {
 
 
                         <li>
-                            <Link href="/" className="menu-item text-sm text-gray-700 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-500">
+                            <Link href="/" className="menu-item text-sm text-gray-700 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-500 border-transparent  transition-all duration-300 bg-gradient-to-r from-[#ff6b6b] to-[#6b47ff] bg-clip-text  ">
                                 Home
                             </Link >
                         </li>
                         <li>
-                            <Link href="/about" className="menu-item text-sm text-gray-700 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-500">
+                            <Link href="/about" className="menu-item text-sm text-gray-700 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-500 border-transparent  transition-all duration-300 bg-gradient-to-r from-[#ff6b6b] to-[#6b47ff] bg-clip-text  ">
                                 About us
                             </Link>
                         </li>
                         <li>
-                            <Link href="/feature" className="menu-item text-sm text-gray-700 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-500">
+                            <Link href="/feature" className="menu-item text-sm text-gray-700 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-500 border-transparent  transition-all duration-300 bg-gradient-to-r from-[#ff6b6b] to-[#6b47ff] bg-clip-text  ">
                                 Features
                             </Link >
                         </li>
                         <li>
-                            <Link href="/product" className="menu-item text-sm text-gray-700 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-500">
+                            <Link href="/product" className="menu-item text-sm text-gray-700 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-500 border-transparent  transition-all duration-300 bg-gradient-to-r from-[#f44b4b] to-[#6b47ff] bg-clip-text  ">
                                 Our Product
                             </Link >
                         </li>
                         {isLogin && (
                             <li className="menu-item p-1 font-normal">
-                                <Link href="/chatbot" className="flex items-center">
+                                <Link href="/chatbot" className="flex items-center text-sm lg:mt-1">
                                     Chatbot
                                 </Link>
                             </li>
                         )}
                         <li>
-                            <Link href="/price" className="menu-item text-sm text-gray-700 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-500">
+                            <Link href="/price" className="menu-item text-sm text-gray-700 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-500 ">
                                 Pricing
                             </Link >
                         </li>
                     </ul>
                     <div className="hidden lg:block">
-                        <Link
-                            href="/signup"
-                            className="inline-block px-4 py-3 mr-2 text-xs font-semibold leading-none text-gray-100 bg-blue-600 border border-blue-200 rounded dark:hover:bg-blue-400 dark:bg-blue-300 dark:text-gray-700 hover:bg-blue-700"
-                        >
-                            Sign Up
-                        </Link >
+                    {!isLogin && (
+                              <Link
+                              href="/signup"
+                              className="inline-block px-4 py-3 mr-2 text-xs  leading-none text-gray-100 bg-blue-600 border border-blue-200 rounded dark:hover:bg-blue-400 dark:bg-blue-300 dark:text-gray-700 hover:bg-blue-700"
+                          >
+                              Sign Up
+                          </Link > 
+                            )}
+                     
                         {isLogin ? (
                             <Link
                                 onClick={handleLogOUt}
                                 href="/login"
-                                className="inline-block px-4 py-3 mr-2 text-xs font-semibold leading-none text-blue-600 border border-blue-200 rounded dark:hover:border-blue-300 dark:hover:text-blue-300 dark:text-gray-400 dark:border-gray-400 hover:text-blue-700 hover:border-blue-300"
+                                className="inline-block px-4 py-3 mr-2 text-xs  leading-none text-blue-600 border border-blue-200 rounded dark:hover:border-blue-300 dark:hover:text-blue-300 dark:text-gray-400 dark:border-gray-400 hover:text-blue-700 hover:border-blue-300"
                             >
-                                LogOUt
+                                Log Out
                             </Link>
                         ) : (
-                            <Link href="/login" className=" inline-block px-4 py-3 mr-2 text-xs font-semibold leading-none text-blue-600 border border-blue-200 rounded dark:hover:border-blue-300 dark:hover:text-blue-300 dark:text-gray-400 dark:border-gray-400 hover:text-blue-700 hover:border-blue-300">
+                            <Link href="/login" className=" inline-block px-4 py-3 mr-2 text-xs  leading-none text-blue-600 border border-blue-200 rounded dark:hover:border-blue-300 dark:hover:text-blue-300 dark:text-gray-400 dark:border-gray-400 hover:text-blue-700 hover:border-blue-300">
                                 Log In
                             </Link>
                         )}
@@ -106,9 +119,9 @@ const Navbar = () => {
                 <div className={`fixed inset-0 w-full bg-gray-900 opacity-25 dark:bg-gray-400 lg:hidden ${open ? 'translate-x-0 ease-in-opacity-100' : '-translate-x-full ease-out opacity-0'}`}></div>
                 <div className={`absolute inset-0 z-10 h-screen p-3 text-gray-400 duration-500 transform bg-blue-50 dark:bg-gray-800 w-80 lg:hidden lg:transform-none lg:relative ${open ? 'translate-x-0 ease-in-opacity-100' : '-translate-x-full ease-out opacity-0'}`}>
                     <div className="flex justify-between lg:">
-                        <a className="p-2 text-2xl font-bold text-gray-700 dark:text-gray-400" href="#">
-                            Logo
-                        </a>
+                    <Link href="/" className="text-3xl  leading-none dark:text-gray-400">
+                        <Image className='w-auto h-16' src={logo2} alt="" srcset="" />
+                    </Link>
                         <button
                             className="p-2 text-gray-700 rounded-md dark:text-gray-400 hover:text-blue-300 lg:hidden"
                             onClick={toggleSidebar}
@@ -150,13 +163,13 @@ const Navbar = () => {
                     <div className="block mt-5 lg:hidden">
                         <Link
                             href="/login"
-                            className="inline-block w-full px-4 py-3 mb-4 mr-2 text-xs font-semibold leading-none text-center text-blue-600 border border-blue-400 rounded dark:hover:text-blue-300 dark:text-gray-400 dark:border-gray-400 hover:text-blue-700 hover:border-blue-300"
+                            className="inline-block w-full px-4 py-3 mb-4 mr-2 text-xs  leading-none text-center text-blue-600 border border-blue-400 rounded dark:hover:text-blue-300 dark:text-gray-400 dark:border-gray-400 hover:text-blue-700 hover:border-blue-300"
                         >
                             Log In
                         </Link >
                         <Link
                             href="/signup"
-                            className="inline-block w-full px-4 py-3 mr-2 text-xs font-semibold leading-none text-center text-gray-100 bg-blue-600 rounded dark:hover:bg-blue-400 dark:bg-blue-300 dark:text-gray-700 hover:bg-blue-700"
+                            className="inline-block w-full px-4 py-3 mr-2 text-xs  leading-none text-center text-gray-100 bg-blue-600 rounded dark:hover:bg-blue-400 dark:bg-blue-300 dark:text-gray-700 hover:bg-blue-700"
                         >
                             Sign Up
                         </Link >
